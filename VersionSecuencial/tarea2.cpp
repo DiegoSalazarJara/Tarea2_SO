@@ -27,27 +27,34 @@ void convertToGraySequential(cv::Mat& image) {
     std::cout << "Tiempo de ejecución: " << elapsed.count() << " segundos" << std::endl;
 }
 
-int main(int argc, char** argv) {
-    // Verificar si se proporciona el nombre de la imagen como argumento
-    if (argc != 2) {
-        std::cerr << "Uso: " << argv[0] << " <nombre_de_la_imagen>" << std::endl;
-        return -1;
-    }
+int main() {
+    // Solicitar el nombre de la imagen original
+    std::cout << "Ingrese el nombre de la imagen original (con extensión): ";
+    std::string originalImageName;
+    std::cin >> originalImageName;
 
-    // Leer la imagen usando OpenCV
-    cv::Mat image = cv::imread(argv[1], cv::IMREAD_COLOR);
+    // Leer la imagen original usando OpenCV
+    cv::Mat originalImage = cv::imread(originalImageName, cv::IMREAD_COLOR);
 
-    // Verificar si la imagen se leyó correctamente
-    if (!image.data) {
-        std::cerr << "Error al cargar la imagen." << std::endl;
+    // Verificar si la imagen original se leyó correctamente
+    if (!originalImage.data) {
+        std::cerr << "Error al cargar la imagen original." << std::endl;
         return -1;
     }
 
     // Aplicar conversión a escala de grises de manera secuencial
-    convertToGraySequential(image);
+    convertToGraySequential(originalImage);
 
-    // Guardar la imagen resultante
-    cv::imwrite("output_sequential.jpg", image);
+    // Solicitar al usuario el nombre para la imagen convertida
+    std::cout << "Ingrese el nombre para la imagen convertida a escala de grises (con extensión): ";
+    std::string convertedImageName;
+    std::cin >> convertedImageName;
+
+    // Guardar la imagen convertida a escala de grises
+    cv::imwrite(convertedImageName, originalImage);
+
+    std::cout << "Imagen convertida a escala de grises y guardada como '" << convertedImageName << "'.\n";
 
     return 0;
 }
+
