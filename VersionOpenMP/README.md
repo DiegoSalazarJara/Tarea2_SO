@@ -20,8 +20,13 @@
 
 
 - Validación:
+
 ![img_3.png](validation.png)
+
 - Tiempo de ejecución:
+
 ![img_2.png](Timeexecution.png)
+
 - Carpeta con el contenido despues de ser ejecutado:
+
 ![img_4.png](folder.png)
