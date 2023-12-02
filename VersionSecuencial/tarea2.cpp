@@ -1,9 +1,13 @@
 #include <opencv2/opencv.hpp>
+#include <chrono>
 
 void convertToGraySequential(cv::Mat& image) {
     // Obtener dimensiones de la imagen
     int rows = image.rows;
     int cols = image.cols;
+
+    // Iniciar el temporizador
+    auto start = std::chrono::high_resolution_clock::now();
 
     // Recorrer cada píxel y aplicar conversión a escala de grises
     for (int i = 0; i < rows; ++i) {
@@ -13,6 +17,13 @@ void convertToGraySequential(cv::Mat& image) {
             image.at<cv::Vec3b>(i, j) = cv::Vec3b(gray, gray, gray);
         }
     }
+
+    // Detener el temporizador y calcular el tiempo transcurrido
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = end - start;
+
+    // Imprimir el tiempo transcurrido en segundos
+    std::cout << "Tiempo de ejecución: " << elapsed.count() << " segundos" << std::endl;
 }
 
 int main() {
