@@ -11,7 +11,7 @@
   - Correo electrónico: diego.salazar2101@alumnos.ubiobio.cl
 
 - **Joaquín Rodrigo Pérez Constenla**
-  - Correo electrónico: joaquin.perez2101@alumnos.ubiobio.cl
+  - Correo electrónico: joaquin.perez2102@alumnos.ubiobio.cl
 
 ## Descripción del Proyecto
 
