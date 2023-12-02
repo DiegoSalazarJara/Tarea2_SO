@@ -1,5 +1,6 @@
 #include <opencv2/opencv.hpp>
 #include <chrono>
+#include <iostream>
 
 void convertToGraySequential(cv::Mat& image) {
     // Obtener dimensiones de la imagen
@@ -26,9 +27,15 @@ void convertToGraySequential(cv::Mat& image) {
     std::cout << "Tiempo de ejecución: " << elapsed.count() << " segundos" << std::endl;
 }
 
-int main() {
+int main(int argc, char** argv) {
+    // Verificar si se proporciona el nombre de la imagen como argumento
+    if (argc != 2) {
+        std::cerr << "Uso: " << argv[0] << " <nombre_de_la_imagen>" << std::endl;
+        return -1;
+    }
+
     // Leer la imagen usando OpenCV
-    cv::Mat image = cv::imread("photo.jpg", cv::IMREAD_COLOR);
+    cv::Mat image = cv::imread(argv[1], cv::IMREAD_COLOR);
 
     // Verificar si la imagen se leyó correctamente
     if (!image.data) {
@@ -44,4 +51,3 @@ int main() {
 
     return 0;
 }
-
