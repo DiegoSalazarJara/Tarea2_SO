@@ -2,7 +2,10 @@
 
 
 - Carrera: Ingenieria de ejecucion en computacion e informatica
+
 - Asignatura: Sistemas Operativos
+
+- Profesor: Alejandro Mauricio Valdés Jiménez 
 
 - Seccion: 1
 
